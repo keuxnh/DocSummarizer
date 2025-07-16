@@ -7,6 +7,8 @@ DocSum is a full-stack document summarization application that allows users to u
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Design preferences: GitHub-style dark theme, rounded fonts (Nunito), minimal unnecessary content.
+Authentication: Requested support for email and social login (Google, Naver, KakaoTalk).
 
 ## System Architecture
 
@@ -43,7 +45,7 @@ Preferred communication style: Simple, everyday language.
 - **File Validation**: 10MB size limit, type validation for security
 
 ### AI Integration
-- **OpenAI Integration**: Uses GPT-4o for document summarization
+- **Gemini Integration**: Uses Google Gemini 2.5 Flash for document summarization
 - **Summarization Modes**: Basic (500 tokens) and detailed (1500 tokens)
 - **Korean Language Support**: Optimized for Korean text processing
 
@@ -57,7 +59,7 @@ Preferred communication style: Simple, everyday language.
 1. **User Authentication**: Users authenticate via Replit Auth
 2. **File Upload**: Users upload PDF/HWP files through drag-and-drop interface
 3. **File Processing**: Server extracts text content from uploaded files
-4. **AI Summarization**: OpenAI API generates summaries based on selected mode
+4. **AI Summarization**: Gemini API generates summaries based on selected mode
 5. **Data Persistence**: Summaries and metadata stored in PostgreSQL
 6. **Real-time Updates**: React Query manages cache invalidation and updates
 
@@ -65,7 +67,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Core Dependencies
 - **Database**: Neon Database (serverless PostgreSQL)
-- **AI Service**: OpenAI API for text summarization
+- **AI Service**: Google Gemini API for text summarization
 - **Authentication**: Replit Auth service
 - **File Processing**: pdf.js-extract library
 
@@ -89,7 +91,7 @@ Preferred communication style: Simple, everyday language.
 - **Session Storage**: PostgreSQL-based session persistence
 
 ### Configuration
-- **Environment Variables**: DATABASE_URL, OPENAI_API_KEY, SESSION_SECRET
+- **Environment Variables**: DATABASE_URL, GEMINI_API_KEY, SESSION_SECRET
 - **Replit Integration**: Cartographer plugin for development environment
 - **Security**: HTTPS enforcement, secure session cookies
 

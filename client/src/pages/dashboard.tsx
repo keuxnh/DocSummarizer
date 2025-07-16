@@ -105,32 +105,32 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#0d1117]">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50 border-b">
+      <header className="bg-[#161b22] border-b border-[#30363d] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <Button
                 variant="ghost"
                 size="sm"
-                className="md:hidden"
+                className="md:hidden text-[#f0f6fc] hover:bg-[#21262d]"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
               >
                 <Menu className="h-5 w-5" />
               </Button>
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <FileText className="h-4 w-4 text-primary-foreground" />
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-[#7c3aed] to-[#3b82f6] rounded-full flex items-center justify-center">
+                  <FileText className="h-4 w-4 text-white" />
                 </div>
-                <span className="text-xl font-bold text-foreground">DocSum</span>
+                <span className="text-xl font-semibold text-white">DocSum</span>
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <span className="text-sm text-muted-foreground">
+              <span className="text-sm text-[#8b949e]">
                 {user?.firstName || user?.email || "사용자"}님
               </span>
-              <Button variant="ghost" size="sm" onClick={handleLogout}>
+              <Button variant="ghost" size="sm" onClick={handleLogout} className="text-[#f0f6fc] hover:bg-[#21262d]">
                 <LogOut className="h-4 w-4 mr-2" />
                 로그아웃
               </Button>
@@ -141,11 +141,11 @@ export default function Dashboard() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:static md:inset-0`}>
+        <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-[#161b22] border-r border-[#30363d] transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:static md:inset-0`}>
           <div className="flex flex-col h-full pt-16">
             <div className="flex-1 px-4 py-6 overflow-y-auto">
               <div className="mb-6">
-                <Button onClick={handleNewSummary} className="w-full">
+                <Button onClick={handleNewSummary} className="w-full bg-[#238636] hover:bg-[#2ea043] text-white border-0">
                   <Plus className="h-4 w-4 mr-2" />
                   새 요약
                 </Button>
@@ -166,8 +166,8 @@ export default function Dashboard() {
             {currentView === 'upload' && (
               <div className="space-y-6">
                 <div className="text-center mb-8">
-                  <h1 className="text-3xl font-bold text-foreground mb-2">문서 요약하기</h1>
-                  <p className="text-muted-foreground">HWP 또는 PDF 파일을 업로드하여 AI 요약을 받아보세요</p>
+                  <h1 className="text-3xl font-bold text-white mb-2">문서 요약하기</h1>
+                  <p className="text-[#8b949e]">HWP 또는 PDF 파일을 업로드하여 AI 요약을 받아보세요</p>
                 </div>
 
                 <FileUpload
@@ -177,18 +177,18 @@ export default function Dashboard() {
                   summaryMode={summaryMode}
                 />
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle>요약 옵션</CardTitle>
-                  </CardHeader>
-                  <CardContent>
+                <div className="bg-[#161b22] border border-[#30363d] rounded-lg">
+                  <div className="p-6 border-b border-[#30363d]">
+                    <h3 className="text-lg font-semibold text-white">요약 옵션</h3>
+                  </div>
+                  <div className="p-6">
                     <RadioGroup value={summaryMode} onValueChange={(value) => setSummaryMode(value as 'basic' | 'detailed')}>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="basic" id="basic" />
                         <Label htmlFor="basic" className="cursor-pointer">
                           <div>
-                            <span className="font-medium">기본 요약</span>
-                            <p className="text-sm text-muted-foreground">핵심 내용을 간단하게 요약합니다</p>
+                            <span className="font-medium text-white">기본 요약</span>
+                            <p className="text-sm text-[#8b949e]">핵심 내용을 간단하게 요약합니다</p>
                           </div>
                         </Label>
                       </div>
@@ -196,28 +196,28 @@ export default function Dashboard() {
                         <RadioGroupItem value="detailed" id="detailed" />
                         <Label htmlFor="detailed" className="cursor-pointer">
                           <div>
-                            <span className="font-medium">상세 요약</span>
-                            <p className="text-sm text-muted-foreground">더 자세하고 포괄적인 요약을 제공합니다</p>
+                            <span className="font-medium text-white">상세 요약</span>
+                            <p className="text-sm text-[#8b949e]">더 자세하고 포괄적인 요약을 제공합니다</p>
                           </div>
                         </Label>
                       </div>
                     </RadioGroup>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </div>
             )}
 
             {currentView === 'loading' && (
-              <Card>
-                <CardContent className="p-12 text-center">
-                  <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">파일 처리 중...</h3>
-                  <p className="text-muted-foreground mb-6">AI가 문서를 분석하고 요약하고 있습니다. 잠시만 기다려주세요.</p>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div className="bg-primary h-2 rounded-full animate-pulse" style={{ width: '60%' }}></div>
+              <div className="bg-[#161b22] border border-[#30363d] rounded-lg">
+                <div className="p-12 text-center">
+                  <div className="animate-spin w-12 h-12 border-4 border-[#7c3aed] border-t-transparent rounded-full mx-auto mb-4"></div>
+                  <h3 className="text-lg font-semibold text-white mb-2">파일 처리 중...</h3>
+                  <p className="text-[#8b949e] mb-6">AI가 문서를 분석하고 요약하고 있습니다. 잠시만 기다려주세요.</p>
+                  <div className="w-full bg-[#30363d] rounded-full h-2">
+                    <div className="bg-[#7c3aed] h-2 rounded-full animate-pulse" style={{ width: '60%' }}></div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             )}
 
             {currentView === 'summary' && selectedSummary && (

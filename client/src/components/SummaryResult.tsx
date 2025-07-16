@@ -28,16 +28,16 @@ export function SummaryResult({ summary, onNewSummary }: SummaryResultProps) {
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader>
+      <div className="bg-[#161b22] border border-[#30363d] rounded-lg">
+        <div className="p-6 border-b border-[#30363d]">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <FileText className="h-5 w-5 text-primary-foreground" />
+              <div className="w-10 h-10 bg-gradient-to-r from-[#7c3aed] to-[#3b82f6] rounded-lg flex items-center justify-center">
+                <FileText className="h-5 w-5 text-white" />
               </div>
               <div>
-                <CardTitle className="text-xl">{summary.title}</CardTitle>
-                <p className="text-sm text-muted-foreground flex items-center space-x-2">
+                <h2 className="text-xl font-semibold text-white">{summary.title}</h2>
+                <p className="text-sm text-[#8b949e] flex items-center space-x-2">
                   <span>{summary.filename}</span>
                   <span>•</span>
                   <span>
@@ -50,27 +50,27 @@ export function SummaryResult({ summary, onNewSummary }: SummaryResultProps) {
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <Badge variant={summary.summaryMode === 'basic' ? 'default' : 'secondary'}>
+              <Badge variant={summary.summaryMode === 'basic' ? 'default' : 'secondary'} className="bg-[#238636] text-white">
                 {summary.summaryMode === 'basic' ? '기본 요약' : '상세 요약'}
               </Badge>
-              <Button variant="outline" size="sm" onClick={handleDownload}>
+              <Button variant="outline" size="sm" onClick={handleDownload} className="border-[#30363d] text-[#f0f6fc] hover:bg-[#21262d]">
                 <Download className="h-4 w-4 mr-2" />
                 다운로드
               </Button>
             </div>
           </div>
-        </CardHeader>
-        <CardContent>
+        </div>
+        <div className="p-6">
           <div className="prose max-w-none">
-            <div className="whitespace-pre-wrap text-sm leading-relaxed">
+            <div className="whitespace-pre-wrap text-sm leading-relaxed text-[#f0f6fc]">
               {summary.summaryContent}
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       <div className="text-center">
-        <Button onClick={onNewSummary} className="bg-primary hover:bg-primary/90">
+        <Button onClick={onNewSummary} className="bg-[#238636] hover:bg-[#2ea043] text-white">
           <Plus className="h-4 w-4 mr-2" />
           새 요약 시작하기
         </Button>
