@@ -20,10 +20,10 @@ export default function Landing() {
               <span className="text-xl font-semibold text-white">DocSum</span>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" onClick={handleLogin} className="text-[#f0f6fc] hover:bg-[#21262d] hover:text-white border-0 rounded-md font-medium">
+              <Button variant="ghost" onClick={() => window.location.href = '/login'} className="text-[#f0f6fc] hover:bg-[#21262d] hover:text-white border-0 rounded-md font-medium">
                 로그인
               </Button>
-              <Button onClick={handleLogin} className="bg-[#238636] hover:bg-[#2ea043] text-white border-0 rounded-md font-medium">
+              <Button onClick={() => window.location.href = '/signup'} className="bg-[#238636] hover:bg-[#2ea043] text-white border-0 rounded-md font-medium">
                 시작하기
               </Button>
             </div>
@@ -48,7 +48,7 @@ export default function Landing() {
             빠르고 정확한 문서 요약으로 시간을 절약하세요.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button onClick={handleLogin} size="lg" className="bg-[#238636] hover:bg-[#2ea043] text-white border-0 rounded-md font-medium text-lg px-8 py-3">
+            <Button onClick={() => window.location.href = '/signup'} size="lg" className="bg-[#238636] hover:bg-[#2ea043] text-white border-0 rounded-md font-medium text-lg px-8 py-3">
               무료로 시작하기
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

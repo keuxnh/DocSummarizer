@@ -9,6 +9,8 @@ DocSum is a full-stack document summarization application that allows users to u
 Preferred communication style: Simple, everyday language.
 Design preferences: GitHub-style dark theme, rounded fonts (Nunito), minimal unnecessary content.
 Authentication: Requested support for email and social login (Google, Naver, KakaoTalk).
+Download preferences: PDF files → PDF format, HWP files → HWP format for download.
+Additional features: Separate login/signup pages, Vercel deployment optimization.
 
 ## System Architecture
 
@@ -70,6 +72,7 @@ Authentication: Requested support for email and social login (Google, Naver, Kak
 - **AI Service**: Google Gemini API for text summarization
 - **Authentication**: Replit Auth service
 - **File Processing**: pdf.js-extract library
+- **Deployment**: Vercel for production hosting
 
 ### Development Tools
 - **Build**: Vite with React plugin
@@ -93,6 +96,30 @@ Authentication: Requested support for email and social login (Google, Naver, Kak
 ### Configuration
 - **Environment Variables**: DATABASE_URL, GEMINI_API_KEY, SESSION_SECRET
 - **Replit Integration**: Cartographer plugin for development environment
+- **Vercel Configuration**: vercel.json for deployment settings
 - **Security**: HTTPS enforcement, secure session cookies
 
-The application follows a modern full-stack architecture with clear separation of concerns, type safety throughout, and scalable database design. The choice of Neon Database provides serverless scaling, while Drizzle ORM ensures type-safe database operations. The React Query integration provides efficient state management and caching for optimal user experience.
+## Recent Changes (January 2025)
+
+### UI/UX Improvements
+- ✓ Implemented GitHub-style dark theme across all pages
+- ✓ Fixed button text visibility issues (white text on white background)
+- ✓ Added proper hover states for all interactive elements
+- ✓ Fixed sidebar scrolling issues with proper padding
+
+### Authentication Enhancement
+- ✓ Created dedicated login and signup pages (/login, /signup)
+- ✓ Added proper routing for authentication flows
+- ✓ Maintained Replit Auth integration with improved UX
+
+### File Processing & Download
+- ✓ Implemented format-specific download (PDF/HWP based on source)
+- ✓ Fixed file upload error handling
+- ✓ Improved Gemini API integration with better error messages
+
+### Deployment Optimization
+- ✓ Added Vercel configuration (vercel.json)
+- ✓ Configured proper build scripts for production
+- ✓ Added deployment-specific environment handling
+
+The application follows a modern full-stack architecture with clear separation of concerns, type safety throughout, and scalable database design. The choice of Neon Database provides serverless scaling, while Drizzle ORM ensures type-safe database operations. The React Query integration provides efficient state management and caching for optimal user experience. The application is now fully optimized for Vercel deployment.

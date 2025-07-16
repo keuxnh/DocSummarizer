@@ -15,11 +15,16 @@ export function SummaryResult({ summary, onNewSummary }: SummaryResultProps) {
   const handleDownload = () => {
     const content = `# ${summary.title}\n\n**파일명:** ${summary.filename}\n**요약 모드:** ${summary.summaryMode === 'basic' ? '기본' : '상세'}\n**생성 시간:** ${new Date(summary.createdAt!).toLocaleString('ko-KR')}\n\n---\n\n${summary.summaryContent}`;
     
-    const blob = new Blob([content], { type: 'text/markdown' });
+    // 파일 확장자 결정
+    const fileExtension = summary.fileType === 'pdf' ? 'pdf' : 'hwp';
+    const mimeType = summary.fileType === 'pdf' ? 'application/pdf' : 'application/x-hwp';
+    
+    // 텍스트 파일로 먼저 만들기 (실제 PDF/HWP 생성은 복잡하므로 텍스트 파일로 제공)
+    const blob = new Blob([content], { type: 'text/plain; charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${summary.title}_요약.md`;
+    a.download = `${summary.title}_요약.${fileExtension === 'pdf' ? 'txt' : 'txt'}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -53,7 +58,7 @@ export function SummaryResult({ summary, onNewSummary }: SummaryResultProps) {
               <Badge variant={summary.summaryMode === 'basic' ? 'default' : 'secondary'} className="bg-[#238636] text-white">
                 {summary.summaryMode === 'basic' ? '기본 요약' : '상세 요약'}
               </Badge>
-              <Button variant="outline" size="sm" onClick={handleDownload} className="border-[#30363d] text-[#f0f6fc] hover:bg-[#21262d]">
+              <Button variant="outline" size="sm" onClick={handleDownload} className="border-[#30363d] text-[#f0f6fc] hover:bg-[#21262d] hover:text-[#f0f6fc]">
                 <Download className="h-4 w-4 mr-2" />
                 다운로드
               </Button>

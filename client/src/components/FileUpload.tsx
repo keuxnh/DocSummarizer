@@ -114,7 +114,7 @@ export function FileUpload({ onUploadStart, onUploadSuccess, onUploadError, summ
             {selectedFile ? `${(selectedFile.size / 1024 / 1024).toFixed(2)}MB` : "또는 클릭하여 파일을 선택하세요"}
           </p>
           {!selectedFile && (
-            <Button type="button" variant="outline" className="border-[#30363d] text-[#f0f6fc] hover:bg-[#21262d]">
+            <Button type="button" variant="outline" className="border-[#30363d] text-[#f0f6fc] hover:bg-[#21262d] hover:text-[#f0f6fc]">
               파일 선택
             </Button>
           )}
@@ -142,7 +142,7 @@ export function FileUpload({ onUploadStart, onUploadSuccess, onUploadError, summ
             </div>
           </div>
           <div className="flex space-x-2">
-            <Button variant="outline" onClick={() => setSelectedFile(null)} className="border-[#30363d] text-[#f0f6fc] hover:bg-[#21262d]">
+            <Button variant="outline" onClick={() => setSelectedFile(null)} className="border-[#30363d] text-[#f0f6fc] hover:bg-[#21262d] hover:text-[#f0f6fc]">
               취소
             </Button>
             <Button onClick={handleUpload} className="bg-[#238636] hover:bg-[#2ea043] text-white">

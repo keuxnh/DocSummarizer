@@ -143,7 +143,7 @@ export default function Dashboard() {
         {/* Sidebar */}
         <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-[#161b22] border-r border-[#30363d] transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:static md:inset-0`}>
           <div className="flex flex-col h-full pt-16">
-            <div className="flex-1 px-4 py-6 overflow-y-auto">
+            <div className="flex-1 px-4 py-6 overflow-y-auto pb-8">
               <div className="mb-6">
                 <Button onClick={handleNewSummary} className="w-full bg-[#238636] hover:bg-[#2ea043] text-white border-0">
                   <Plus className="h-4 w-4 mr-2" />
