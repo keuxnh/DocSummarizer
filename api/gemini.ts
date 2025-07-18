@@ -18,10 +18,6 @@ export async function summarizeDocument(text: string, mode: 'basic' | 'detailed'
         role: "user",
         parts: [{ text: prompt }]
       }],
-      generationConfig: {
-        maxOutputTokens: mode === 'basic' ? 500 : 1500,
-        temperature: 0.3,
-      }
     });
 
     if (!response.response?.text) {
