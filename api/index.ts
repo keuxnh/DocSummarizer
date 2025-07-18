@@ -92,7 +92,7 @@ app.post('/api/summaries', isAuthenticated, upload.single('file'), async (req: a
       fileType: req.file.originalname.endsWith('.pdf') ? 'pdf' : 'hwp',
       summaryMode,
       summaryContent,
-      originalText: text.substring(0, 1000) // Store first 1000 chars
+      originalContent: text.substring(0, 1000) // Store first 1000 chars
     });
 
     res.json(summary);
